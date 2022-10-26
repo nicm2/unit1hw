@@ -19,14 +19,11 @@ public class GradeCalculator {
 
         if (category.equals("separate")) {
             this.enterVals();
-            // current * (1-percent) + final * percent = desired
-            test = (desired - (current * (1-percent/100))) / (percent/100); // Ex. 95 - (90 * (1 - .20)) / .20
+            test = (desired - (current * (1-percent/100))) / (percent/100);
         }
 
         else if (category.equals("tests")) {
             this.enterPoints();
-            // current_points = current * 100 - percent_test * points_test
-            // percent_test * (points_test + points_final) + (1-percent_test) * (current_points) = desired
             percent_test /= 100;
             int current_points = (int)current - (int)(percent_test) * points_test;
             test = ((desired - ((1-percent_test)*current_points)/percent_test) - points_test);
@@ -44,7 +41,7 @@ public class GradeCalculator {
                 System.out.println(category);
                 break;
 
-            } catch (Exception e) { // catch non-numerical input
+            } catch (Exception e) { 
                 System.out.println("Not a string, " + e);
             }
             dd.close();
@@ -68,7 +65,7 @@ public class GradeCalculator {
                 System.out.println(desired);
 
                 break;
-            } catch (Exception e) { // catch non-numerical input
+            } catch (Exception e) { 
                 System.out.println(current + "not a double, " + e);
             }
             dd2.close();
